@@ -1,5 +1,7 @@
 let opcion;
 let opcionCat;
+let opcionCarrito;
+let opcionEliminar;
 
 const productos = [];
 
@@ -7,6 +9,18 @@ function agregarItem(numero) {
   productos[numero - 1].cantidadCarrito += 1;
   productos[numero - 1].enCarrito = true;
   productos[numero - 1].cantidad -= 1;
+}
+
+/*function resetearCarrito() {
+ 
+}*/
+
+function eliminarItem(numero) {
+  productos[numero - 1].cantidadCarrito -= 1;
+  if (productos[numero - 1].cantidadCarrito == 0) {
+    productos[numero - 1].enCarrito = false;
+  }
+  productos[numero - 1].cantidad += 1;
 }
 
 class Producto {
@@ -44,41 +58,9 @@ while (opcion != 3) {
       while (opcionCat != 6) {
         switch (opcionCat) {
           case 1:
-            if (productos[opcionCat - 1].cantidad == 0) {
-              alert("La cantidad agregada es mayor al stock disponible");
-              break;
-            }
-            agregarItem(opcionCat);
-            alert("Item agregado al carrito!");
-            break;
-
           case 2:
-            if (productos[opcionCat - 1].cantidad == 0) {
-              alert("La cantidad agregada es mayor al stock disponible");
-              break;
-            }
-            agregarItem(opcionCat);
-            alert("Item agregado al carrito!");
-            break;
-
           case 3:
-            if (productos[opcionCat - 1].cantidad == 0) {
-              alert("La cantidad agregada es mayor al stock disponible");
-              break;
-            }
-            agregarItem(opcionCat);
-            alert("Item agregado al carrito!");
-            break;
-
           case 4:
-            if (productos[opcionCat - 1].cantidad == 0) {
-              alert("La cantidad agregada es mayor al stock disponible");
-              break;
-            }
-            agregarItem(opcionCat);
-            alert("Item agregado al carrito!");
-            break;
-
           case 5:
             if (productos[opcionCat - 1].cantidad == 0) {
               alert("La cantidad agregada es mayor al stock disponible");
@@ -100,18 +82,48 @@ while (opcion != 3) {
           )
         );
       }
-      // console.log(productos);
+
       break;
 
     case 2:
-      const carrito = productos.filter((el) => el.enCarrito == true);
-      let avisoCarrito = "Su carrito contiene: \n\n";
-      for (const producto of carrito) {
+      do {
+        let carrito = productos.filter((el) => el.enCarrito == true);
+        let avisoCarrito = "Su carrito contiene: \n\n";
+        let avisoEliminarCarrito =
+          "Ingrese el numero del item que desea eliminar: \n\n";
+        let total = 0;
+        for (const producto of carrito) {
+          avisoCarrito =
+            avisoCarrito +
+            `${producto.nombre}   |   Cantidad: ${producto.cantidadCarrito}   |   Precio: $${producto.precio}\n`;
+          avisoEliminarCarrito =
+            avisoEliminarCarrito +
+            `${producto.sku}. ${producto.nombre}   |   Cantidad: ${producto.cantidadCarrito}\n`;
+          total = total + producto.cantidadCarrito * producto.precio;
+        }
         avisoCarrito =
           avisoCarrito +
-          `${producto.nombre} | Cantidad: ${producto.cantidadCarrito}\n`;
-      }
-      alert(avisoCarrito);
+          `\nTotal: $${total}\n\nIngrese 1 para finalizar la compra o 2 para eliminar algun item del carrito:`;
+
+        opcionCarrito = parseInt(prompt(avisoCarrito));
+
+        switch (opcionCarrito) {
+          case 1:
+            alert(
+              `Su Total es: $${total}\n\nMuchas gracias por comprar con nosotros!`
+            );
+            //resetearCarrito();
+            break;
+
+          case 2:
+            opcionEliminar = parseInt(prompt(avisoEliminarCarrito));
+            eliminarItem(opcionEliminar);
+            break;
+
+          default:
+            alert("Ingrese una opcion valida:");
+        }
+      } while (opcionCarrito != 1);
       break;
 
     case 3:
