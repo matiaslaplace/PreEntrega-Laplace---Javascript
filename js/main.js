@@ -11,10 +11,6 @@ function agregarItem(numero) {
   productos[numero - 1].cantidad -= 1;
 }
 
-/*function resetearCarrito() {
- 
-}*/
-
 function eliminarItem(numero) {
   productos[numero - 1].cantidadCarrito -= 1;
   if (productos[numero - 1].cantidadCarrito == 0) {
@@ -112,7 +108,10 @@ while (opcion != 3) {
             alert(
               `Su Total es: $${total}\n\nMuchas gracias por comprar con nosotros!`
             );
-            //resetearCarrito();
+            for (const producto of carrito) {
+              producto.enCarrito = false;
+              producto.cantidadCarrito = 0;
+            }
             break;
 
           case 2:
