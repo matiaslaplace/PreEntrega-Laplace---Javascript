@@ -4,10 +4,136 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>Pre Entrega Javascript</h1>
+    <h1 class="Heading">Pre Entrega Javascript</h1>
+
+    <div class="Cart-Container">
+      <div class="Header">
+        <h3 class="Heading">Shopping Cart</h3>
+        <h5 id="removeAll" class="Action">Remove all</h5>
+      </div>
+      <div class="Cart-Items">
+        <div class="image-box">
+          <img class="imagenesCarrito" src="Images/llavero.jpeg" />
+        </div>
+        <div class="about">
+          <h1 class="title">Llavero</h1>
+          <h3 class="subtitle">$850</h3>
+        </div>
+        <div class="counter">
+          <div id="btnSumar1" class="btnSumar">+</div>
+          <div id="contador1" class="count">0</div>
+          <div id="btnRestar1" class="btnRestar">-</div>
+        </div>
+        <div class="prices">
+          <div id="amount1" class="amount">$0</div>
+          <div id="remove1" class="remove">
+            <u>Remove</u>
+          </div>
+          <div id="maxStock1" class="maxStock">
+            <u>Maximo stock disponible</u>
+          </div>
+        </div>
+      </div>
+      <div class="Cart-Items">
+        <div class="image-box">
+          <img class="imagenesCarrito" src="Images/remera.jpg" />
+        </div>
+        <div class="about">
+          <h1 class="title">Remera</h1>
+          <h3 class="subtitle">$2000</h3>
+        </div>
+        <div class="counter">
+          <div id="btnSumar2" class="btnSumar">+</div>
+          <div id="contador2" class="count">0</div>
+          <div id="btnRestar2" class="btnRestar">-</div>
+        </div>
+        <div class="prices">
+          <div id="amount2" class="amount">$0</div>
+          <div id="remove2" class="remove"><u>Remove</u></div>
+          <div id="maxStock2" class="maxStock">
+            <u>Maximo stock disponible</u>
+          </div>
+        </div>
+      </div>
+      <div class="Cart-Items">
+        <div class="image-box">
+          <img class="imagenesCarrito" src="Images/gorra.jpg" />
+        </div>
+        <div class="about">
+          <h1 class="title">Gorra</h1>
+          <h3 class="subtitle">$1250</h3>
+        </div>
+        <div class="counter">
+          <div id="btnSumar3" class="btnSumar">+</div>
+          <div id="contador3" class="count">0</div>
+          <div id="btnRestar3" class="btnRestar">-</div>
+        </div>
+        <div class="prices">
+          <div id="amount3" class="amount">$0</div>
+          <div id="remove3" class="remove"><u>Remove</u></div>
+          <div id="maxStock3" class="maxStock">
+            <u>Maximo stock disponible</u>
+          </div>
+        </div>
+      </div>
+      <div class="Cart-Items">
+        <div class="image-box">
+          <img class="imagenesCarrito" src="Images/plancha.jpeg" />
+        </div>
+        <div class="about">
+          <h1 class="title">Stickers</h1>
+          <h3 class="subtitle">$350</h3>
+        </div>
+        <div class="counter">
+          <div id="btnSumar4" class="btnSumar">+</div>
+          <div id="contador4" class="count">0</div>
+          <div id="btnRestar4" class="btnRestar">-</div>
+        </div>
+        <div class="prices">
+          <div id="amount4" class="amount">$0</div>
+          <div id="remove4" class="remove"><u>Remove</u></div>
+          <div id="maxStock4" class="maxStock">
+            <u>Maximo stock disponible</u>
+          </div>
+        </div>
+      </div>
+      <div class="Cart-Items">
+        <div class="image-box">
+          <img class="imagenesCarrito" src="Images/poster.jpeg" />
+        </div>
+        <div class="about">
+          <h1 class="title">Poster</h1>
+          <h3 class="subtitle">$500</h3>
+        </div>
+        <div class="counter">
+          <div id="btnSumar5" class="btnSumar">+</div>
+          <div id="contador5" class="count">0</div>
+          <div id="btnRestar5" class="btnRestar">-</div>
+        </div>
+        <div class="prices">
+          <div id="amount5" class="amount">$0</div>
+          <div id="remove5" class="remove"><u>Remove</u></div>
+          <div id="maxStock5" class="maxStock">
+            <u>Maximo stock disponible</u>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="checkout">
+        <div class="total">
+          <div>
+            <div class="Subtotal">Sub-Total</div>
+            <div id="items" class="items">0 items</div>
+          </div>
+          <div id="subtotal" class="total-amount">$0</div>
+        </div>
+        <button class="button">Checkout</button>
+      </div>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>
