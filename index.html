@@ -5,135 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
     <title>Document</title>
   </head>
+  <header>
+    <nav>
+      <h2>Curso JavaScript</h2>
+      <div class="carritoCheck" id="carritoCheck">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="currentColor"
+          class="bi bi-cart"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+          />
+        </svg>
+        <p class="numeroCarrito" id="numeroCarrito">0</p>
+      </div>
+    </nav>
+  </header>
   <body>
-    <h1 class="Heading">Pre Entrega Javascript</h1>
+    <br />
+    <br />
 
-    <div class="Cart-Container">
-      <div class="Header">
-        <h3 class="Heading">Shopping Cart</h3>
-        <h5 id="removeAll" class="Action">Remove all</h5>
-      </div>
-      <div class="Cart-Items">
-        <div class="image-box">
-          <img class="imagenesCarrito" src="Images/llavero.jpeg" />
-        </div>
-        <div class="about">
-          <h1 class="title">Llavero</h1>
-          <h3 class="subtitle">$850</h3>
-        </div>
-        <div class="counter">
-          <div id="btnSumar1" class="btnSumar">+</div>
-          <div id="contador1" class="count">0</div>
-          <div id="btnRestar1" class="btnRestar">-</div>
-        </div>
-        <div class="prices">
-          <div id="amount1" class="amount">$0</div>
-          <div id="remove1" class="remove">
-            <u>Remove</u>
-          </div>
-          <div id="maxStock1" class="maxStock">
-            <u>Maximo stock disponible</u>
-          </div>
-        </div>
-      </div>
-      <div class="Cart-Items">
-        <div class="image-box">
-          <img class="imagenesCarrito" src="Images/remera.jpg" />
-        </div>
-        <div class="about">
-          <h1 class="title">Remera</h1>
-          <h3 class="subtitle">$2000</h3>
-        </div>
-        <div class="counter">
-          <div id="btnSumar2" class="btnSumar">+</div>
-          <div id="contador2" class="count">0</div>
-          <div id="btnRestar2" class="btnRestar">-</div>
-        </div>
-        <div class="prices">
-          <div id="amount2" class="amount">$0</div>
-          <div id="remove2" class="remove"><u>Remove</u></div>
-          <div id="maxStock2" class="maxStock">
-            <u>Maximo stock disponible</u>
-          </div>
-        </div>
-      </div>
-      <div class="Cart-Items">
-        <div class="image-box">
-          <img class="imagenesCarrito" src="Images/gorra.jpg" />
-        </div>
-        <div class="about">
-          <h1 class="title">Gorra</h1>
-          <h3 class="subtitle">$1250</h3>
-        </div>
-        <div class="counter">
-          <div id="btnSumar3" class="btnSumar">+</div>
-          <div id="contador3" class="count">0</div>
-          <div id="btnRestar3" class="btnRestar">-</div>
-        </div>
-        <div class="prices">
-          <div id="amount3" class="amount">$0</div>
-          <div id="remove3" class="remove"><u>Remove</u></div>
-          <div id="maxStock3" class="maxStock">
-            <u>Maximo stock disponible</u>
-          </div>
-        </div>
-      </div>
-      <div class="Cart-Items">
-        <div class="image-box">
-          <img class="imagenesCarrito" src="Images/plancha.jpeg" />
-        </div>
-        <div class="about">
-          <h1 class="title">Stickers</h1>
-          <h3 class="subtitle">$350</h3>
-        </div>
-        <div class="counter">
-          <div id="btnSumar4" class="btnSumar">+</div>
-          <div id="contador4" class="count">0</div>
-          <div id="btnRestar4" class="btnRestar">-</div>
-        </div>
-        <div class="prices">
-          <div id="amount4" class="amount">$0</div>
-          <div id="remove4" class="remove"><u>Remove</u></div>
-          <div id="maxStock4" class="maxStock">
-            <u>Maximo stock disponible</u>
-          </div>
-        </div>
-      </div>
-      <div class="Cart-Items">
-        <div class="image-box">
-          <img class="imagenesCarrito" src="Images/poster.jpeg" />
-        </div>
-        <div class="about">
-          <h1 class="title">Poster</h1>
-          <h3 class="subtitle">$500</h3>
-        </div>
-        <div class="counter">
-          <div id="btnSumar5" class="btnSumar">+</div>
-          <div id="contador5" class="count">0</div>
-          <div id="btnRestar5" class="btnRestar">-</div>
-        </div>
-        <div class="prices">
-          <div id="amount5" class="amount">$0</div>
-          <div id="remove5" class="remove"><u>Remove</u></div>
-          <div id="maxStock5" class="maxStock">
-            <u>Maximo stock disponible</u>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div class="checkout">
-        <div class="total">
-          <div>
-            <div class="Subtotal">Sub-Total</div>
-            <div id="items" class="items">0 items</div>
-          </div>
-          <div id="subtotal" class="total-amount">$0</div>
-        </div>
-        <button class="button">Checkout</button>
-      </div>
-    </div>
+    <div id="listaDeProductos"></div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,33 @@
+[
+  {
+    "sku": 1,
+    "nombre": "Llavero",
+    "precio": 850,
+    "cantidad": 4
+  },
+
+  {
+    "sku": 2,
+    "nombre": "Remera",
+    "precio": 2000,
+    "cantidad": 2
+  },
+  {
+    "sku": 3,
+    "nombre": "Gorra",
+    "precio": 1250,
+    "cantidad": 5
+  },
+  {
+    "sku": 4,
+    "nombre": "Stickers",
+    "precio": 350,
+    "cantidad": 2
+  },
+  {
+    "sku": 5,
+    "nombre": "Poster",
+    "precio": 500,
+    "cantidad": 8
+  }
+]
