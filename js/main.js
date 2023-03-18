@@ -103,7 +103,7 @@ function modificarIconoCarrito() {
 }
 
 function obtenerProductosDelJSON() {
-  fetch("../productos.json")
+  fetch("/productos.json")
     .then((response) => {
       return response.json();
     })
