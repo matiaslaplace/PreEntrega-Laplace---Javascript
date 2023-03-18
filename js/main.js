@@ -103,7 +103,7 @@ function modificarIconoCarrito() {
 }
 
 function obtenerProductosDelJSON() {
-  fetch("/productos.json")
+  fetch("./productos.json")
     .then((response) => {
       return response.json();
     })
@@ -259,6 +259,7 @@ function visualizarResumen() {
 
   for (const productoDeCarrito of carrito) {
     // Crear div para el carrito
+
     const div = document.createElement("div");
     div.setAttribute("class", "resumenCarrito");
 
