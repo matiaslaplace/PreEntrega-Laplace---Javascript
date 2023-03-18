@@ -21,6 +21,7 @@ nav {
 
 .carritoCheck {
   position: relative;
+  cursor: pointer;
 }
 
 .numeroCarrito {
@@ -34,6 +35,30 @@ nav {
   border-radius: 50%;
   color: white;
   background-color: red;
+}
+
+.resumenCarrito {
+  padding: 1rem;
+  position: absolute;
+  justify-content: space-between;
+  top: 100%;
+  right: 5%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 25px 40px #1687d933;
+}
+
+.titulosTabla {
+  font-weight: 700;
+}
+
+.resumen {
+  font-weight: 700;
+  font-size: larger;
+}
+
+td {
+  padding: 1rem;
 }
 
 body {

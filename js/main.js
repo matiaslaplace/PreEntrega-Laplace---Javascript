@@ -232,6 +232,106 @@ function eliminarItem(productoADescontar) {
   guardarLocal("Carrito", JSON.stringify(carrito));
 }
 
+function visualizarResumen() {
+  divListaDeCarrito.innerHTML = "";
+
+  let total = 0;
+
+  const resumen = document.createElement("p");
+  resumen.innerText = "Resumen";
+  resumen.setAttribute("class", "resumen");
+  divListaDeCarrito.append(resumen);
+
+  const trTitulos = document.createElement("tr");
+  const tdNombres = document.createElement("td");
+  tdNombres.setAttribute("class", "titulosTabla");
+  const tdPrecios = document.createElement("td");
+  tdPrecios.setAttribute("class", "titulosTabla");
+  const tdCantidades = document.createElement("td");
+  tdCantidades.setAttribute("class", "titulosTabla");
+
+  tdNombres.innerText = "Producto";
+  tdPrecios.innerText = "Subtotal";
+  tdCantidades.innerText = "Cant";
+
+  trTitulos.append(tdNombres, tdPrecios, tdCantidades);
+  divListaDeCarrito.append(trTitulos);
+
+  for (const productoDeCarrito of carrito) {
+    // Crear div para el carrito
+    const div = document.createElement("div");
+    div.setAttribute("class", "resumenCarrito");
+
+    // Crear la tabla de productos
+
+    const tr = document.createElement("tr");
+
+    const tdNombre = document.createElement("td");
+    tdNombre.innerText = `${productoDeCarrito.nombre}`;
+
+    const tdPrecio = document.createElement("td");
+    tdPrecio.innerText = `$${
+      productoDeCarrito.precio * productoDeCarrito.cantidad
+    }`;
+
+    const tdCantidad = document.createElement("td");
+    tdCantidad.innerText = `${productoDeCarrito.cantidad}`;
+
+    const tdAcciones = document.createElement("td");
+    const btnEliminar = document.createElement("button");
+    btnEliminar.setAttribute("class", "btn btn-danger");
+    btnEliminar.innerText = "Eliminar";
+
+    btnEliminar.addEventListener("click", () => {
+      eliminarProducto(productoDeCarrito);
+    });
+
+    tdAcciones.append(btnEliminar);
+
+    tr.append(tdNombre, tdPrecio, tdCantidad, tdAcciones);
+    divListaDeCarrito.append(tr);
+
+    total = total + productoDeCarrito.precio * productoDeCarrito.cantidad;
+  }
+
+  const linea = document.createElement("hr");
+  divListaDeCarrito.append(linea);
+
+  const trTotal = document.createElement("tr");
+  trTotal.setAttribute("class", "titulosTabla");
+
+  const tdTotalProductos = document.createElement("td");
+  tdTotalProductos.innerText = "TOTAL";
+
+  const tdTotalPrecio = document.createElement("td");
+  tdTotalPrecio.innerText = `$${total}`;
+
+  const tdTotalCantidad = document.createElement("td");
+  tdTotalCantidad.innerText = `${cantidadEnIconoCarrito}`;
+
+  const btnCheckout = document.createElement("button");
+  btnCheckout.setAttribute("class", "btn btn-primary");
+  btnCheckout.innerText = "Pagar";
+
+  trTotal.append(tdTotalProductos, tdTotalPrecio, tdTotalCantidad, btnCheckout);
+  divListaDeCarrito.append(trTotal);
+
+  divListaDeCarrito.style.visibility = "visible";
+
+  divListaDeCarrito.addEventListener("mouseleave", () => ocultarResumen());
+}
+
+function ocultarResumen() {
+  divListaDeCarrito.style.visibility = "hidden";
+}
+
+function eliminarProducto(productoAEliminar) {
+  while (productoAEliminar.cantidad > 0) {
+    eliminarItem(productoAEliminar);
+    visualizarResumen();
+  }
+}
+
 // INICIO DEL PROGRAMA
 
 const guardarLocal = (clave, valor) => {
@@ -239,8 +339,13 @@ const guardarLocal = (clave, valor) => {
 };
 
 const divListaDeProductos = document.getElementById("listaDeProductos");
+const divListaDeCarrito = document.getElementById("listaDeCarrito");
+divListaDeCarrito.style.visibility = "hidden";
 let productos = [];
 let carrito = [];
 let cantidadEnIconoCarrito = 0;
 
 obtenerProductosDelJSON();
+
+let resumenCarrito = document.getElementById("carritoCheck");
+resumenCarrito.addEventListener("click", () => visualizarResumen());
